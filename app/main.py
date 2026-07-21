@@ -1,10 +1,12 @@
 from fastapi import FastAPI
+
 from app.api.routes.health import router
+from app.core.config import settings
 
 app = FastAPI(
-    title="Pharmacy Inventory API",
-    version="0.1.0",
-    description="Backend API for pharmacy inventory management.",
+    title=settings.app_name,
+    version=settings.app_version,
+    description=settings.app_description,
 )
 
 app.include_router(router)
